@@ -1,28 +1,24 @@
-import { AfterViewInit, Component, OnInit } from '@angular/core';
-import { NgPerfume } from 'perfume.js/angular';
-import { MyColorsService } from '../my-colors.service';
-
+import { AfterViewInit, Component, OnInit } from '@angular/core'
+import { NgPerfume } from 'perfume.js/angular'
+import { MyColorsService } from '../my-colors.service'
 
 @Component({
-    selector: 'app-color-switch',
-    templateUrl: './color-switch.component.html',
-    styleUrls: ['./color-switch.component.scss']
+  selector: 'app-color-switch',
+  templateUrl: './color-switch.component.html',
+  styleUrls: ['./color-switch.component.scss']
 })
 // @PerfumeAfterViewInit('ColorFactoryComponent')
 export class ColorSwitchComponent implements OnInit, AfterViewInit {
+  displayColors: string[]
 
-    displayColors: string[];
+  constructor(private colors: MyColorsService, public perfume: NgPerfume) {
+    this.displayColors = this.colors.displayColors
+    this.perfume.start('ColorSwitchComponentAfterPaint')
+  }
 
-    constructor(private colors: MyColorsService, public perfume: NgPerfume) {
-        this.displayColors = this.colors.displayColors;
-        this.perfume.start('ColorSwitchComponentAfterPaint');
-    }
+  ngOnInit() {}
 
-    ngOnInit() {
-    }
-
-    ngAfterViewInit() {
-        this.perfume.endPaint('ColorSwitchComponentAfterPaint');
-    }
-
+  ngAfterViewInit() {
+    this.perfume.endPaint('ColorSwitchComponentAfterPaint')
+  }
 }

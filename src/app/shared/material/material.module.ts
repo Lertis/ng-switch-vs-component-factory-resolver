@@ -1,12 +1,12 @@
-import { NgModule } from '@angular/core';
+import { NgModule } from '@angular/core'
 
-import { MatButtonModule } from '@angular/material';
-import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule } from '@angular/material'
+import { MatCardModule } from '@angular/material/card'
 
-const materialModules = [MatButtonModule, MatCardModule];
+const materialModules = [MatButtonModule, MatCardModule]
 
 @NgModule({
   imports: [materialModules],
   exports: [materialModules]
 })
-export class MaterialModule { }
+export class MaterialModule {}

@@ -1,4 +1,4 @@
 export interface ColorBox {
-    color: string;
-    index?: number;
+  color: string
+  index?: number
 }
